@@ -1,0 +1,19 @@
+class Solution(object):
+    def mergeAlternately(self, word1, word2):
+        newWord = ''
+        w1 = word1
+        w2 = word2
+        arrayWord1 = list(w1)
+        arrayWord2 = list(w2)
+        for i in range(min(len(arrayWord1),len(arrayWord2))):
+            newWord += arrayWord1[i]
+            newWord += arrayWord2[i]
+            
+        if len(arrayWord1) >= len(arrayWord2):
+            longerArray = arrayWord1
+        else:
+            longerArray = arrayWord2
+
+        for i in range(max(len(arrayWord1),len(arrayWord2)) - min(len(arrayWord1),len(arrayWord2))):
+            newWord += longerArray[min(len(arrayWord1),len(arrayWord2)):][i]
+        return newWord
