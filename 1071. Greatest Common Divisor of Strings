@@ -1,0 +1,30 @@
+class Solution(object):
+    def gcdOfStrings(self, str1, str2):
+        str1 = str1
+        str2 = str2
+        
+        divisorList1 = []
+        divisorList2 = []
+        for i in range(1, 1 + len(str1)):
+            if len(str1) % i == 0:
+                divisorList1.append(i)
+        for i in range(1, 1 + len(str2)):
+            if len(str2) % i == 0:
+                divisorList2.append(i)
+        
+        prefixList1 = []
+        prefixList2 = []
+        for i in divisorList1:
+            if str1 == str1[:i] * (len(str1) // i):
+                prefixList1.append(str1[:i])
+        for i in divisorList2:
+            if str2 == str2[:i] * (len(str2) // i):
+                prefixList2.append(str2[:i])
+        
+        result = ''
+        for i in prefixList1:
+            if i in prefixList2:
+                if len(i) >= len(result):
+                    result = i
+
+        return result
