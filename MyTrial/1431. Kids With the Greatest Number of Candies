@@ -1,0 +1,15 @@
+class Solution(object):
+    def kidsWithCandies(self, candies, extraCandies):
+        candies = candies
+        extraCandies = extraCandies
+        result = []
+
+        for candy in candies:
+            afterExtra = candy + extraCandies
+                       
+            if afterExtra < max(candies):
+                result += [False]
+            else:
+                result += [True]
+        
+        return result       
