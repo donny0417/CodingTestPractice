@@ -1,0 +1,18 @@
+class Solution(object):
+    def reverseVowels(self, s):
+        stringArray = list(s)
+        vowel = ['a','e','i','o','u','A','E','I','O','U']
+        vowelIndex = []
+        vowelInString = []
+        result = ''
+        idx = 0
+        for letter in s:
+            if letter in vowel:
+                vowelIndex.append(idx)
+                vowelInString.append(letter)
+            idx += 1
+        for i in range(len(vowelInString)):
+            stringArray[vowelIndex[i]] = vowelInString[-(i+1)]
+        for letter in stringArray:
+            result += letter
+        return result
