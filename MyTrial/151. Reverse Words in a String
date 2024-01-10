@@ -1,0 +1,20 @@
+class Solution(object):
+    def reverseWords(self, s):
+        arrayWords = []
+        word = ''
+        for i in range(len(s)):
+            if s[i] != ' ' and i != len(s) - 1:
+                word += s[i]
+            elif s[i] != ' ' and i == len(s) - 1:
+                word += s[i]
+                arrayWords.append(word)
+            else:
+                if len(word) > 0:
+                    arrayWords.append(word)
+                    word = ''
+        result = ''
+        for i in range(len(arrayWords)):
+            result += arrayWords[-(i+1)]
+            if i != len(arrayWords) - 1:
+                result += ' '
+        return result
